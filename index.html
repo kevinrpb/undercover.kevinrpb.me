@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>Undercover</title>
+
+        <link rel="stylesheet" href="assets/css/main.min.css">
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/util.min.js"></script>
+        <script src="assets/js/localization.min.js"></script>
+        <script src="assets/js/main.min.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="navbar">
+                <button id="back-btn">BACK_BUTTON_STRING</button>
+                <h2 id="title">TITLE_STRING</h2>
+            </div>
+
+            <div id="game">
+                <div id="start" class="panel">
+                    <div id="select-players" class="selection">
+                        <button id="players-less">-</button>
+                        <div id="players-count">4</div>
+                        <button id="players-more">+</button>
+                    </div>
+
+                    <div id="select-undercover" class="selection">
+                        <button id="undercover-less">-</button>
+                        <div id="undercover-count">1</div>
+                        <button id="undercover-more">+</button>
+                    </div>
+
+                    <button id="play-btn">Play</button>
+                </div>
+
+                <div id="play" class="panel">
+                    <h2 id="current-player">PLAYER_HERE</h2>
+                    <div id="current-word">
+                        <div class="text">WORD_HERE</div>
+                        <button id="toggle-word">Ver</button>
+                    </div>
+                    <button id="next-turn">NEXT_HERE</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
