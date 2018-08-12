@@ -54,7 +54,7 @@ function setupGame() {
     // Get Values
     players = $('#players-count').text();
     undercover = $('#undercover-count').text();
-    keyword = '__keyword__';
+    keyword = language['words'][generateRandomInt(0, language['words'].length)];
     turns = [];
 
     // Set turns
@@ -112,14 +112,14 @@ function setupGame() {
     });
 
     // Add solution
-    let str = 'Solution: ' + turns[under_indexes[0]].player;
+    let str = 'Solución: ' + turns[under_indexes[0]].player;
     for (let i = 1; i < under_indexes.length; i++) {
         str += ', ' + turns[under_indexes[i]].player;
     }
     turns.push({
         player: str,
         under: false,
-        word: '',
+        word: keyword,
         next: 'Repetir'
     });
 }
@@ -140,11 +140,15 @@ function makeTurn() {
     $('#current-word .text').removeClass('show');
 
     let current = turns[currentTurn];
-    if (currentTurn === turns.length - 1 || currentTurn === turns.length - 2) {
+    if (currentTurn === turns.length - 2) {
         // Solution
         $('#current-word').hide();
     } else {
         $('#current-word').show();
+
+        if (currentTurn === turns.length - 1) {
+            $('#current-word .text').addClass('show');
+        }
     }
 
     let t = 400;

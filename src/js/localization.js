@@ -4,7 +4,8 @@ const localization = {
         'back': '<',
         'player': 'Jugador',
         'decide': 'Encuentra los infiltrados',
-        'search': 'Buscar infiltrado'
+        'search': 'Buscar infiltrado',
+        'words': words_list['es_ES']
     }
 }
 
