@@ -96,7 +96,6 @@ function setupGame() {
             under_indexes.push(rand);
         }
     }
-    console.log(under_indexes)
 
     for (let i of under_indexes) {
         turns[i].under = true;
