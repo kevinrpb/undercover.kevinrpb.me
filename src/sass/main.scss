@@ -98,6 +98,19 @@ body {
             }
         }
     }
+
+    @media screen and (min-width: 650px) {
+        height: 80vh;
+        width: 420px;
+        margin: auto;
+        margin-top: 10vh;
+        border-radius: 10px;
+    }
+
+    @media screen and (min-width: 650px) and (min-height: 750px) {
+        height: 670px;
+        margin-top: calc(50vh - 335px);
+    }
 }
 
 #start {
