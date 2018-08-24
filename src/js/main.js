@@ -8,6 +8,15 @@ let turns = [];
 let currentTurn;
 
 $(function() {
+    $('#lang-select').on('change', function(e) {
+        let lan_query = $(this).val();
+        let newUrl = location.origin + '/?lan=' + lan_query
+
+        history.pushState(null, '', newUrl);
+        language = checkLanguage();
+        localize(language);
+    });
+
     $('#back-btn').on('click', function(e) {
         $('#wrapper').removeClass('playing');
     });
@@ -16,6 +25,7 @@ $(function() {
         let p = $('#players-count').text();
         $('#players-count').text(Math.max(--p, 1));
     });
+
     $('#players-more').on('click', function(e) {
         let p = $('#players-count').text();
         $('#players-count').text(Math.max(++p, 1));
@@ -48,6 +58,7 @@ $(function() {
 
     language = checkLanguage();
     localize(language);
+    $('#wrapper').addClass('loaded');
 })
 
 function setupGame() {
@@ -153,7 +164,7 @@ function makeTurn() {
     let t = 400;
     if (currentTurn === 0)
         t = 20
-    
+
     $('#play').animate({ opacity: 0 }, t, function() {
         $('#current-player').text(current['player']);
         $('#current-word .text').text(current['word']);

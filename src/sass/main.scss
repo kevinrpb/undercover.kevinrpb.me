@@ -29,6 +29,7 @@ body {
         height: 150px;
         display: flex;
         transition-delay: 0.4s;
+        opacity: 0;
 
         #back-btn {
             // transition-delay: 0.4s;
@@ -51,6 +52,8 @@ body {
     #game {
         flex: 1 auto;
         position: relative;
+        transition-delay: 0.4s;
+        opacity: 0;
 
         .panel {
             position: absolute;
@@ -65,6 +68,16 @@ body {
 
         #play {
             left: calc(110%);
+        }
+    }
+
+    &.loaded {
+        #navbar {
+            opacity: 1;
+        }
+
+        #game {
+            opacity: 1;
         }
     }
 
@@ -146,7 +159,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    
+
     #current-player {
         font-size: 44px;
         overflow-wrap: break-word;
