@@ -17,7 +17,7 @@ const localization = {
         'decide': 'Decide for undercover',
         'search': 'Find the undercover',
         'toggle': 'Show',
-        'words': words_list['es_ES']
+        'words': words_list['en_US']
     }
 }
 
