@@ -14,6 +14,7 @@ body {
 }
 
 #wrapper {
+    z-index: 2;
     height: 100%;
     width: 100%;
     display: flex;
@@ -21,9 +22,11 @@ body {
     overflow: hidden;
 
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     background-color: rgba(255, 255, 255, 0.3);
 
     #navbar {
+        z-index: 2;
         height: 150px;
         display: flex;
         transition-delay: 0.4s;
@@ -32,22 +35,49 @@ body {
         #back-btn {
             // transition-delay: 0.4s;
             opacity: 0;
+            margin-top: 25px;
             width: 0;
             background: none;
             border: none;
             font-size: 24px;
+            background: url("../img/back.svg") no-repeat scroll center transparent;
+            background-size: 50%;
         }
 
         #title {
             transition-delay: 0.4s;
             flex: 1 auto;
             text-align: center;
-            line-height: 150px;
-            font-size: 52px;
+            display: flex;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            div {
+                transition-delay: 0.4s;
+                flex: 1 auto;
+                line-height: 150px;
+                font-size: 52px;
+                float: left;
+            }
+
+            #settings-btn {
+                transition-delay: 0.4s;
+                width: 50px;
+                height: 50px;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                text-align: center;
+                border: none;
+                font-size: 24px;
+                line-height: 50px;
+                background: url("../img/gear.svg") no-repeat scroll center transparent;
+                background-size: 50%;
+            }
         }
     }
 
     #game {
+        z-index: 2;
         flex: 1 auto;
         position: relative;
         transition-delay: 0.4s;
@@ -66,6 +96,62 @@ body {
 
         #play {
             left: calc(110%);
+        }
+    }
+
+    #settings {
+        z-index: 1;
+        position: absolute;
+        left: 60px;
+        top: 60px;
+        height: calc(100% - 170px);
+        width: calc(100% - 170px);
+        border-radius: 10px;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+        // background-color: rgba(120, 120, 120, 0.6);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        background-color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        #settings-close {
+            position: relative;
+            left: -10px;
+            top: -10px;
+            width: 25px;
+            height: 25px;
+            border: none;
+            background: none;
+            line-height: 25px;
+            font-size: 25px;
+        }
+
+        form {
+            flex: 1 auto;
+            display: flex;
+            flex-direction: column;
+
+            .field {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        &.show {
+            z-index: 3;
+            opacity: 1;
+            left: 20px;
+            top: 20px;
+            height: calc(100% - 90px);
+            width: calc(100% - 90px);
+            // box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.4);
         }
     }
 
@@ -90,12 +176,25 @@ body {
                 transition-delay: 0.8s;
                 opacity: 1;
                 width: 50px;
+                margin-top: 0;
             }
 
             #title {
                 transition-delay: 0.4s;
-                line-height: 50px;
-                font-size: 34px;
+                margin: 0;
+
+                div {
+                    line-height: 50px;
+                    font-size: 34px;
+                    transition-delay: 0.4s;
+                }
+
+                #settings-btn {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    transition-delay: 0.4s;
+                    // opacity: 0;
+                }
             }
         }
 
@@ -116,11 +215,34 @@ body {
         margin: auto;
         margin-top: 10vh;
         border-radius: 10px;
+        box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.4);
+
+        #settings {
+            top: 0;
+            left: calc(50% - 210px);
+            height: calc(80vh + 50px);
+            width: 370px;
+
+            &.show {
+                top: 0;
+                left: calc(50% - 210px);
+                height: calc(80vh + 50px);
+                width: 370px;
+            }
+        }
     }
 
     @media screen and (min-width: 650px) and (min-height: 750px) {
         height: 670px;
         margin-top: calc(50vh - 335px);
+
+        #settings {
+            height: 670px;
+
+            &.show {
+                height: 670px;
+            }
+        }
     }
 }
 
@@ -131,13 +253,28 @@ body {
     text-align: center;
 
     .selection {
-        height: 100px;
+        height: 50px;
         display: flex;
 
-        * {
+        div {
             flex: 1 auto;
-            line-height: 100px;
+            line-height: 50px;
             font-size: 54px;
+        }
+
+        button {
+            height: 50px;
+            width: 50px;
+        }
+
+        .less-btn {
+            background: url("../img/minus.svg") no-repeat scroll center transparent;
+            background-size: 30%;
+        }
+
+        .more-btn {
+            background: url("../img/add.svg") no-repeat scroll center transparent;
+            background-size: 30%;
         }
     }
 
@@ -145,6 +282,7 @@ body {
     button {
         height: 100px;
         border: none;
+        background: none;
         border-radius: 10px;
         font-size: 44px;
         transition: none;
@@ -170,8 +308,10 @@ body {
         button {
             width: 50px;
             border: none;
+            background: none;
             border-radius: 10px;
             transition: none;
+            font-size: 15px;
             box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
         }
 
@@ -190,6 +330,7 @@ body {
     #next-turn {
         height: 60px;
         border: none;
+        background: none;
         border-radius: 10px;
         font-size: 44px;
         transition: none;

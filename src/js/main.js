@@ -8,6 +8,13 @@ let turns = [];
 let currentTurn;
 
 $(function() {
+    $('#settings-btn').on('click', function(e) {
+        $('#settings').addClass('show');
+    });
+    $('#settings-close').on('click', function(e) {
+        $('#settings').removeClass('show');
+    });
+
     $('#lang-select').on('change', function(e) {
         let lan_query = $(this).val();
         let newUrl = location.origin + '/?lan=' + lan_query

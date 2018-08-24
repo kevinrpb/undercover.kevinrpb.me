@@ -18,27 +18,26 @@
     <body>
         <div id="wrapper">
             <div id="navbar">
-                <button id="back-btn">BACK_BUTTON_STRING</button>
-                <h2 id="title">TITLE_STRING</h2>
+                <button id="back-btn"></button>
+                <h2 id="title">
+                    <div>TITLE_STRING</div>
+                    <button id="settings-btn"></button>
+                </h2>
             </div>
 
             <div id="game">
                 <div id="start" class="panel">
-                    <select id="lang-select">
-                        <option value="en_US">English</option>
-                        <option value="es_ES">Español</option>
-                    </select>
 
                     <div id="select-players" class="selection">
-                        <button id="players-less">-</button>
+                        <button id="players-less" class="less-btn"></button>
                         <div id="players-count">4</div>
-                        <button id="players-more">+</button>
+                        <button id="players-more" class="more-btn"></button>
                     </div>
 
                     <div id="select-undercover" class="selection">
-                        <button id="undercover-less">-</button>
+                        <button id="undercover-less" class="less-btn"></button>
                         <div id="undercover-count">1</div>
-                        <button id="undercover-more">+</button>
+                        <button id="undercover-more" class="more-btn"></button>
                     </div>
 
                     <button id="play-btn">PLAY_STRING</button>
@@ -52,6 +51,23 @@
                     </div>
                     <button id="next-turn">NEXT_HERE</button>
                 </div>
+            </div>
+
+            <div id="settings">
+                <button id="settings-close">&times;</button>
+
+                <h1>Settings</h1>
+
+                <form action="">
+                    <div class="field">
+                        <label for="lang-select">Language:</label>
+                        <select id="lang-select">
+                            <option value="en_US">English</option>
+                            <option value="es_ES">Español</option>
+                        </select>
+                    </div>
+                    <div class="field">More settings to come...</div>
+                </form>
             </div>
         </div>
     </body>

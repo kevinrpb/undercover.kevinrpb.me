@@ -2,7 +2,6 @@ const localization = {
     'es_ES': {
         'title': 'Infiltrado',
         'play': 'Jugar',
-        'back': '<',
         'player': 'Jugador',
         'decide': 'Acusar',
         'search': 'Descubrir',
@@ -14,7 +13,6 @@ const localization = {
     'en_US': {
         'title': 'Undercover',
         'play': 'Play',
-        'back': '<',
         'player': 'Player',
         'decide': 'Accuse',
         'search': 'Uncover',
@@ -46,8 +44,7 @@ function checkLanguage() {
 }
 
 function localize(language) {
-    $('#title').text(language['title']);
+    $('#title div').text(language['title']);
     $('#play-btn').text(language['play']);
-    $('#back-btn').text(language['back']);
     $('#toggle-word').text(language['toggle']);
 }
