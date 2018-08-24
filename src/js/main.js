@@ -123,7 +123,7 @@ function setupGame() {
         player: language['decide'] + ' (' + undercover + ')',
         under: false,
         word: '',
-        next: 'Terminar'
+        next: language['finish']
     });
 
     // Add solution
@@ -135,7 +135,7 @@ function setupGame() {
         player: str,
         under: false,
         word: keyword,
-        next: 'Repetir'
+        next: language['repeat']
     });
 }
 

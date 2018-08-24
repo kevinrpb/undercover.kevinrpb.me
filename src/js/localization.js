@@ -4,9 +4,11 @@ const localization = {
         'play': 'Jugar',
         'back': '<',
         'player': 'Jugador',
-        'decide': 'Encuentra los infiltrados',
-        'search': 'Buscar infiltrado',
+        'decide': 'Acusar',
+        'search': 'Descubrir',
         'toggle': 'Ver',
+        'finish': 'Terminar',
+        'repeat': 'Repetir',
         'words': words_list['es_ES']
     },
     'en_US': {
@@ -14,9 +16,11 @@ const localization = {
         'play': 'Play',
         'back': '<',
         'player': 'Player',
-        'decide': 'Decide for undercover',
-        'search': 'Find the undercover',
+        'decide': 'Accuse',
+        'search': 'Uncover',
         'toggle': 'Show',
+        'finish': 'Finish',
+        'repeat': 'Play Again',
         'words': words_list['en_US']
     }
 }
