@@ -146,38 +146,42 @@ function startGame() {
 }
 
 function makeTurn() {
+    $('#current-word .text').text('');
+    $('#current-word .text').removeClass('show');
+
+    let d = 10;
     if (currentTurn == turns.length) {
+        d = 400;
         setupGame();
         currentTurn = 0;
     }
 
-    $('#current-word .text').text('');
-    $('#current-word .text').removeClass('show');
-
-    let current = turns[currentTurn];
-    if (currentTurn === turns.length - 2) {
-        // Solution
-        $('#current-word').hide();
-    } else {
-        $('#current-word').show();
-
-        if (currentTurn === turns.length - 1) {
-            $('#current-word .text').addClass('show');
-        }
-    }
-
-    let t = 400;
-    if (currentTurn === 0)
-        t = 20
-
-    $('#play').animate({ opacity: 0 }, t, function() {
-        $('#current-player').text(current['player']);
-        $('#current-word .text').text(current['word']);
-        $('#next-turn').text(current['next']);
-    });
-
     setTimeout(function() {
-        $('#play').animate({ opacity: 1 }, 400);
-    }, t);
-    currentTurn++;
+        let current = turns[currentTurn];
+        if (currentTurn === turns.length - 2) {
+            // Solution
+            $('#current-word').hide();
+        } else {
+            $('#current-word').show();
+
+            if (currentTurn === turns.length - 1) {
+                $('#current-word .text').addClass('show');
+            }
+        }
+
+        let t = 400;
+        if (currentTurn === 0)
+            t = 20
+
+        $('#play').animate({ opacity: 0 }, t, function() {
+            $('#current-player').text(current['player']);
+            $('#current-word .text').text(current['word']);
+            $('#next-turn').text(current['next']);
+        });
+
+        setTimeout(function() {
+            $('#play').animate({ opacity: 1 }, 400);
+        }, t);
+        currentTurn++;
+    }, d);
 }
