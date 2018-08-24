@@ -12,10 +12,15 @@ $(function() {
         let lan_query = $(this).val();
         let newUrl = location.origin + '/?lan=' + lan_query
 
-        history.pushState(null, '', newUrl);
+        history.pushState(null, 'Undercover', newUrl);
         language = checkLanguage();
         localize(language);
     });
+
+    window.onpopstate = function (e) {
+        language = checkLanguage();
+        localize(language);
+    }
 
     $('#back-btn').on('click', function(e) {
         $('#wrapper').removeClass('playing');
