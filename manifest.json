@@ -15,6 +15,5 @@
     }
   ],
   "background_color": "#FFFFFF",
-  "display": "minimal-ui",
-  "orientation": "portrait"
+  "display": "standalone"
 }
