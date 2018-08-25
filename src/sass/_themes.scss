@@ -1,0 +1,55 @@
+// Change all svgs
+@mixin theme-imgs($theme) {
+    #back-btn {
+        background: url("../img/back-#{$theme}.svg") no-repeat scroll center transparent !important;
+        background-size: 50% !important;
+    }
+
+    #settings-btn {
+        background: url("../img/gear-#{$theme}.svg") no-repeat scroll center transparent !important;
+        background-size: 50% !important;
+    }
+
+    #start .less-btn {
+        background: url("../img/minus-#{$theme}.svg") no-repeat scroll center transparent !important;
+        background-size: 30% !important;
+    }
+
+    #start .more-btn {
+        background: url("../img/add-#{$theme}.svg") no-repeat scroll center transparent !important;
+        background-size: 30% !important;
+    }
+}
+
+// Dark theme
+body.theme-dark {
+
+    @include theme-imgs('theme-dark');
+    background-image: linear-gradient(62deg, darken(#8EC5FC, 70%) 0%, darken(#E0C3FC, 70%) 100%);
+
+    #wrapper {
+        background-color: rgba(50, 50, 50, 0.5);
+        color: white;
+
+        #game button {
+            color: white;
+            box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        &.playing #navbar {
+            background-color: rgba(55, 55, 55, 0.5);
+        }
+
+        @media screen and (min-width: 650px) {
+            box-shadow: 0px 0px 12px 1px rgba(200, 200, 200, 0.4);
+        }
+    }
+
+    #settings {
+        background-color: rgba(50, 50, 50, 0.5) !important;
+
+        #settings-close {
+            color: white;
+        }
+    }
+}

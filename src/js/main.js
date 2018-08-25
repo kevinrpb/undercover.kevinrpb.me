@@ -1,4 +1,5 @@
 let language;
+let theme;
 
 let players;
 let undercover;
@@ -11,22 +12,29 @@ $(function() {
     $('#settings-btn').on('click', function(e) {
         $('#settings').addClass('show');
     });
+
     $('#settings-close').on('click', function(e) {
         $('#settings').removeClass('show');
     });
 
     $('#lang-select').on('change', function(e) {
         let lan_query = $(this).val();
-        let newUrl = location.origin + '/?lan=' + lan_query
-
-        history.pushState(null, 'Undercover', newUrl);
-        language = checkLanguage();
+        language = localization[lan_query];
         localize(language);
+        applyUrlParams(language, theme);
+    });
+
+    $('#theme-select').on('change', function(e) {
+        theme = $(this).val();
+        themify(theme);
+        applyUrlParams(language, theme);
     });
 
     window.onpopstate = function (e) {
         language = checkLanguage();
+        theme = checkTheme();
         localize(language);
+        themify(theme);
     }
 
     $('#back-btn').on('click', function(e) {
@@ -69,7 +77,10 @@ $(function() {
     });
 
     language = checkLanguage();
+    theme = checkTheme();
     localize(language);
+    themify(theme);
+    applyUrlParams(language, theme);
     $('#wrapper').addClass('loaded');
 })
 

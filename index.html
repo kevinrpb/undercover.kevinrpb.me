@@ -13,9 +13,10 @@
         <script src="assets/js/util.min.js"></script>
         <script src="assets/js/words.min.js"></script>
         <script src="assets/js/localization.min.js"></script>
+        <script src="assets/js/theming.min.js"></script>
         <script src="assets/js/main.min.js"></script>
     </head>
-    <body>
+    <body class="theme-default">
         <div id="wrapper">
             <div id="navbar">
                 <button id="back-btn"></button>
@@ -64,6 +65,13 @@
                         <select id="lang-select">
                             <option value="en_US">English</option>
                             <option value="es_ES">Español</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="theme-select">Theme:</label>
+                        <select id="theme-select">
+                            <option value="default">Default (Light)</option>
+                            <option value="dark">Dark</option>
                         </select>
                     </div>
                     <div class="field">More fancy settings to come...</div>

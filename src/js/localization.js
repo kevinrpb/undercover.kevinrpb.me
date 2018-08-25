@@ -1,5 +1,6 @@
 const localization = {
     'es_ES': {
+        'id': 'es_ES',
         'title': 'Infiltrado',
         'play': 'Jugar',
         'player': 'Jugador',
@@ -11,6 +12,7 @@ const localization = {
         'words': words_list['es_ES']
     },
     'en_US': {
+        'id': 'en_US',
         'title': 'Undercover',
         'play': 'Play',
         'player': 'Player',
@@ -24,6 +26,8 @@ const localization = {
 }
 
 function checkLanguage() {
+    let baseUrl = location.origin;
+
     // Check query
     let lan_query = getParameterByName('lan');
     if (lan_query === null || lan_query === "" || !localization[lan_query]) {
@@ -31,11 +35,11 @@ function checkLanguage() {
         let lan_stored = localStorage.getItem('kUndercover_language');
 
         if (lan_stored && lan_stored != "") {
-            location.href += '?lan=' + lan_stored;
+            lan_query = lan_stored;
         }
 
         // Set default
-        location.href += '?lan=es_ES';
+        lan_query = 'es_ES';
     }
 
     $('#lang-select option[value="' + lan_query + '"]').prop("selected", "selected");

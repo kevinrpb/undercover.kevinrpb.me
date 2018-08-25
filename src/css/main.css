@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +29,7 @@ body {
   z-index: 2;
   height: 150px;
   display: flex;
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
   opacity: 0;
 }
 #wrapper #navbar #back-btn {
@@ -42,7 +43,7 @@ body {
   background-size: 50%;
 }
 #wrapper #navbar #title {
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
   flex: 1 auto;
   text-align: center;
   display: flex;
@@ -50,14 +51,14 @@ body {
   margin-right: 20px;
 }
 #wrapper #navbar #title div {
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
   flex: 1 auto;
   line-height: 150px;
   font-size: 52px;
   float: left;
 }
 #wrapper #navbar #title #settings-btn {
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
   width: 50px;
   height: 50px;
   margin-top: 50px;
@@ -144,28 +145,28 @@ body {
 }
 #wrapper.playing #navbar {
   height: 50px;
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
   background-color: rgba(255, 255, 255, 0.5);
 }
 #wrapper.playing #navbar #back-btn {
-  transition-delay: 0.8s;
+  transition: all 0.4s ease 0.8s, color 0.4s ease;
   opacity: 1;
   width: 50px;
   margin-top: 0;
 }
 #wrapper.playing #navbar #title {
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
   margin: 0;
 }
 #wrapper.playing #navbar #title div {
   line-height: 50px;
   font-size: 34px;
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
 }
 #wrapper.playing #navbar #title #settings-btn {
   margin-top: 0;
   margin-bottom: 0;
-  transition-delay: 0.4s;
+  transition: all 0.4s ease 0.4s, color 0.4s ease;
 }
 #wrapper.playing #game #start {
   left: calc(-90%);
@@ -241,7 +242,7 @@ body {
   background: none;
   border-radius: 10px;
   font-size: 44px;
-  transition: none;
+  transition: all 0.4s ease;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
@@ -264,7 +265,7 @@ body {
   border: none;
   background: none;
   border-radius: 10px;
-  transition: none;
+  transition: all 0.4s ease;
   font-size: 15px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
@@ -283,8 +284,50 @@ body {
   background: none;
   border-radius: 10px;
   font-size: 44px;
-  transition: none;
+  transition: all 0.4s ease;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark {
+  background-image: linear-gradient(62deg, #011324 0%, #2e0456 100%);
+}
+body.theme-dark #back-btn {
+  background: url("../img/back-theme-dark.svg") no-repeat scroll center transparent !important;
+  background-size: 50% !important;
+}
+body.theme-dark #settings-btn {
+  background: url("../img/gear-theme-dark.svg") no-repeat scroll center transparent !important;
+  background-size: 50% !important;
+}
+body.theme-dark #start .less-btn {
+  background: url("../img/minus-theme-dark.svg") no-repeat scroll center transparent !important;
+  background-size: 30% !important;
+}
+body.theme-dark #start .more-btn {
+  background: url("../img/add-theme-dark.svg") no-repeat scroll center transparent !important;
+  background-size: 30% !important;
+}
+body.theme-dark #wrapper {
+  background-color: rgba(50, 50, 50, 0.5);
+  color: white;
+}
+body.theme-dark #wrapper #game button {
+  color: white;
+  box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.4);
+}
+body.theme-dark #wrapper.playing #navbar {
+  background-color: rgba(55, 55, 55, 0.5);
+}
+@media screen and (min-width: 650px) {
+  body.theme-dark #wrapper {
+    box-shadow: 0px 0px 12px 1px rgba(200, 200, 200, 0.4);
+  }
+}
+body.theme-dark #settings {
+  background-color: rgba(50, 50, 50, 0.5) !important;
+}
+body.theme-dark #settings #settings-close  {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
