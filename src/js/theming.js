@@ -4,11 +4,9 @@ const themes = [
 ];
 
 function checkTheme() {
-    let baseUrl = location.origin;
-
     // Check query
     let theme_query = getParameterByName('theme');
-    if (theme_query === null || theme_query === "" || !localization[theme_query]) {
+    if (theme_query === null || theme_query === "" || !themes.indexOf(theme_query)) {
         // Check storage
         let theme_stored = localStorage.getItem('kUndercover_theme');
 

@@ -26,8 +26,6 @@ const localization = {
 }
 
 function checkLanguage() {
-    let baseUrl = location.origin;
-
     // Check query
     let lan_query = getParameterByName('lan');
     if (lan_query === null || lan_query === "" || !localization[lan_query]) {
