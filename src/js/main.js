@@ -82,6 +82,58 @@ $(function() {
     themify(theme);
     applyUrlParams(language, theme);
     $('#wrapper').addClass('loaded');
+
+    self.addEventListener('install', function(event) {
+        event.waitUntil(
+            caches.open(cacheName).then(function(cache) {
+                return cache.addAll(
+                    [
+                        // Default theme icons
+                        '/assets/img/add.svg',
+                        '/assets/img/back.svg',
+                        '/assets/img/gear.svg',
+                        '/assets/img/minus.svg',
+
+                        // Dark theme icons
+                        '/assets/img/add-theme-dark.svg',
+                        '/assets/img/back-theme-dark.svg',
+                        '/assets/img/gear-theme-dark.svg',
+                        '/assets/img/minus-theme-dark.svg',
+
+                        // CSS
+                        '/assets/css/main.min.css',
+
+                        // JS
+                        '/assets/js/jquery-3.3.1.min.js',
+                        '/assets/js/util.min.js',
+                        '/assets/js/words.min.js',
+                        '/assets/js/localization.min.js',
+                        '/assets/js/theming.min.js',
+                        '/assets/js/main.min.js'
+                    ]
+                );
+            })
+        );
+    });
+    // self.addEventListener('fetch', function(event) {
+    //     event.respondWith(
+    //         caches.open('mysite-dynamic').then(function(cache) {
+    //             return cache.match(event.request).then(function (response) {
+    //                 return response || fetch(event.request).then(function(response) {
+    //                     cache.put(event.request, response.clone());
+    //                     return response;
+    //                 });
+    //             });
+    //         })
+    //     );
+    // });
+    self.addEventListener('fetch', function(event) {
+        event.respondWith(
+            caches.match(event.request).then(function(response) {
+                return response || fetch(event.request);
+            })
+        );
+    });
 })
 
 function setupGame() {
